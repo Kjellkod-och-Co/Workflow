@@ -1,0 +1,37 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "A Discord bot to help find app ideas for my students",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tenkaklet/WorkFlow.git"
+  },
+  "keywords": [
+    "Tenkaklet",
+    "WorkFlow",
+    "Work",
+    "Flow",
+    "School",
+    "Teaching",
+    "Online"
+  ],
+  "author": "Max Carlquist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tenkaklet/WorkFlow/issues"
+  },
+  "homepage": "https://github.com/Tenkaklet/WorkFlow#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
