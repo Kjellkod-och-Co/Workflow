@@ -28,7 +28,6 @@ client.on('messageCreate', async message => {
 const doSomething = async (message, prefix) => {
     const messageBody = message.content.slice(prefix.length);
     const args = messageBody.split(' ');
-    const query = args.shift().toLocaleLowerCase();
     const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('select').setPlaceholder('Välj ett alternativ').addOptions([
         {
             label: 'Hjälp med App idé',
@@ -76,7 +75,7 @@ client.on('interactionCreate', async interaction => {
     }
 
     if(interaction.values[0] === 'help-with-app-1') {
-        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('select-help-with-app').setPlaceholder('Har du en API?').addOptions([
+        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('1').setPlaceholder('Har du en API?').addOptions([
             {
                 label: 'Ja',
                 description: 'Gå vidare till nästa steg',
@@ -94,11 +93,11 @@ client.on('interactionCreate', async interaction => {
     }
 
     if(interaction.values[0] === 'help-with-app-api-ja') {
-        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('select-help-with-app').setPlaceholder('Nästa steg?').addOptions([
+        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('2').setPlaceholder('Nästa steg?').addOptions([
             {
                 label: 'Ja',
                 description: 'Gå vidare till nästa steg',
-                value: 'end-help',
+                value: 'app-open-link',
             },
             {
                 label: 'Nej',
@@ -111,8 +110,8 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply({content: header, components: [row]});
     }
 
-    if(interaction.values[0] === 'help-with-app-api-nej') {
-        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('select-help-with-app').setPlaceholder('Vill du öppna länken i webbläsaren?').addOptions([
+    if(interaction.values[0] === 'app-open-link') {
+        const row = new MessageActionRow().addComponents(new MessageSelectMenu().setCustomId('3').setPlaceholder('Vill du öppna länken i webbläsaren?').addOptions([
             {
                 label: 'Ja',
                 description: 'Jag vill klicka på länken',
